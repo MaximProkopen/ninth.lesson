@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ninth lesson</title>
+</head>
+
+<body>
+    <script>
+
+        /*
+        Напишите ф-ии, которые:
+        cloneObj(obj) // вернет копию объекта (не используя методов, пишем свой)
+        getValues(obj) // вернет массив значений из объекта
+        getKeys(obj) // вернет массив ключей из объекта
+        getEntries(obj) // вернет массив, который будет состоять из массивов, где 0 элемент - ключ, а 1 - значение
+        */
+
+        let infoUser = {
+            name: 'Maksym',
+            surname: 'Prokopenko',
+            age: 41,
+            nationality: 'Ukrainian'
+        };
+
+        function cloneObj(obj) {
+            let copyObj = {};
+            for (let key in obj) {
+                copyObj[key] = obj[key];
+            }
+            return copyObj;
+        } console.log(cloneObj(infoUser));
+
+        /*
+        let corn = cloneObj(infoUser);
+        console.log(corn);
+        corn.name = 'Andriy';
+        console.log(infoUser);
+        console.log(corn); 
+        */
+
+        function getValues(obj) {
+            let array = [];
+            for (let key in obj) {
+                array.push(obj[key]);
+            } return array;
+        } console.log(getValues(infoUser));
+
+
+        function getKeys(obj) {
+            let arrayKeys = [];
+            for (let key in obj) {
+                arrayKeys.push(key);
+            } return arrayKeys;
+        } console.log(getKeys(infoUser));
+
+
+        function getEntries(obj) {
+            let arrayToArray = [];
+            for (let key in obj) {
+
+                let arrayToArrayEntries = [];
+                arrayToArrayEntries.push(key, obj[key]);
+                arrayToArray.push(arrayToArrayEntries);
+
+            } return arrayToArray;
+        } console.log(getEntries(infoUser));
+
+
+    </script>
+</body>
+
+</html>
